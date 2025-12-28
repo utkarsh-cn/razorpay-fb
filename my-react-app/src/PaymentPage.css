@@ -1,0 +1,225 @@
+/* PaymentPage.css */
+
+.payment-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-image: url('https://razorpay.com/assets/razorpay-glyph.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 400px;
+  background-blend-mode: overlay;
+  padding: 20px;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.payment-box {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 100px rgba(103, 114, 234, 0.1);
+  width: 100%;
+  max-width: 450px;
+  backdrop-filter: blur(10px);
+  animation: slideIn 0.6s ease-out, float 6s ease-in-out infinite;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 0 100px rgba(103, 114, 234, 0.1);
+  }
+  50% {
+    transform: translateY(-10px);
+    box-shadow: 
+      0 30px 60px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(255, 255, 255, 0.2),
+      0 0 150px rgba(103, 114, 234, 0.15);
+  }
+}
+
+.payment-title {
+  text-align: center;
+  color: #333;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleGlow 3s ease-in-out infinite;
+  letter-spacing: -0.5px;
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+  }
+}
+
+.amount-input {
+  width: 90%;
+  padding: 18px 20px;
+  font-size: 20px;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  margin: 15px 0;
+  transition: all 0.3s ease;
+  background: white;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.amount-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 
+    inset 0 2px 5px rgba(0, 0, 0, 0.05),
+    0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: scale(1.02);
+}
+
+.amount-input:hover {
+  border-color: #764ba2;
+}
+
+.pay-button {
+  width: 100%;
+  padding: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.pay-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 15px 30px rgba(102, 126, 234, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.pay-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.pay-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.pay-button:hover::before {
+  left: 100%;
+}
+
+.razorpay-badge {
+  text-align: center;
+  margin-top: 25px;
+  padding: 15px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 10px;
+  animation: badgePulse 2s ease-in-out infinite;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.razorpay-text {
+  font-size: 16px;
+  color: #667eea;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .payment-box {
+    padding: 40px 30px;
+    margin: 20px;
+  }
+  
+  .payment-title {
+    font-size: 28px;
+  }
+  
+  .amount-input {
+    padding: 16px;
+    font-size: 18px;
+  }
+  
+  .pay-button {
+    padding: 18px;
+    font-size: 20px;
+  }
+  
+  .payment-container {
+    background-size: 300px;
+  }
+}
