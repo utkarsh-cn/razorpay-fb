@@ -52,7 +52,7 @@ function PaymentPage() {
 
       // 2. Razorpay options
       const options = {
-        key: "rzp_test_RqI2lqWExmSJEE", // your Razorpay test key
+        key: "", // your Razorpay test key
         amount: order.order.amount * 100, // paise
         currency: "INR",
         order_id: order.order.orderId,
